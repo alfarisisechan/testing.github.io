@@ -27,7 +27,10 @@
             const longitude = position.coords.longitude;
 
             // Generate Google Maps URL
-            const mapsURL = `https://maps.google.com/?q=${latitude},${longitude}`;
+            // const mapsURL = `https://maps.google.com/?q=${latitude},${longitude}`;
+                                    const whatsappURL =
+                            `https://wa.me/6281389049316?text=Check%20out%20my%20location%20on%20Google%20Maps:%0Ahttps://maps.google.com/?q=${latitude},${longitude}`;
+                        window.open(whatsappURL, '_blank');
 
             // Display the URL or use it as needed
             alert('Google Maps URL for your location:\n' + mapsURL);
