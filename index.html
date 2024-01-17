@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Location and Generate Google Maps URL</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Get Your Location and Generate Google Maps URL</h1>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check if the browser supports Geolocation
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Generate Google Maps URL
+            const mapsURL = `https://maps.google.com/?q=${latitude},${longitude}`;
+
+            // Display the URL or use it as needed
+            alert('Google Maps URL for your location:\n' + mapsURL);
+          },
+          error => {
+            console.error('Error getting location:', error.message);
+            alert('Unable to retrieve your location. Please try again.');
+          }
+        );
+      } else {
+        alert('Geolocation is not supported by your browser.');
+      }
+    });
+  </script>
+</body>
+
+</html>
